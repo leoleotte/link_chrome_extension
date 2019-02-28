@@ -1,0 +1,26 @@
+{
+  "name": "xboxunity LiNK",
+  "version": "1.0",
+  "description": "Check realtime LiNK stats",
+  "permissions": [
+    "storage",
+    "declarativeContent",
+    "http://phoenix.xboxunity.net/linkgizmo.php",
+    "http://xboxunity.net/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "favicon.png",
+      "32": "favicon.png",
+      "64": "UnityIcon128.png",
+      "128": "UnityIcon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "manifest_version": 2
+}

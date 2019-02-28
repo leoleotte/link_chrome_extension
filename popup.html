@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      height: 400px;
+      width: 200px;
+      outline: none;
+      background-color: #555555;
+      color: white;
+      font-family: Verdana, Geneva, sans-serif;
+    }
+
+    .game_icon {
+      width: 32px;
+      height: 32px;
+      margin-right: 5px;
+    }
+
+    .game_line {
+      display: flex;
+      margin: 5px;
+      background-color: #333333;
+    }
+
+    .users_online {
+      background-color: #444444;
+      padding-top: 2px;
+    }
+
+    .game_info {
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <a href="http://xboxunity.net/" target="new"><img src="UnityBanner.png" /></a>
+    <div id="online">Loading...</div>
+  </center>
+
+  <div class="game_line">
+    <img id=game1_icon class="game_icon" />
+    <div class="game_info">
+      <div id="game1">Loading...</div>
+      <div id="game1_users" class="users_online">...</div>
+    </div>
+  </div>
+  <div class="game_line">
+    <img id=game2_icon class="game_icon" />
+    <div class="game_info">
+      <div id="game2">Loading...</div>
+      <div id="game2_users" class="users_online">...</div>
+    </div>
+  </div>
+  <div class="game_line">
+    <img id=game3_icon class="game_icon" />
+    <div class="game_info">
+      <div id="game3">Loading...</div>
+      <div id="game3_users" class="users_online">...</div>
+    </div>
+  </div>
+  <div class="game_line">
+    <img id=game4_icon class="game_icon" />
+    <div class="game_info">
+      <div id="game4">Loading...</div>
+      <div id="game4_users" class="users_online">...</div>
+    </div>
+  </div>
+  <div class="game_line">
+    <img id=game5_icon class="game_icon" />
+    <div class="game_info">
+      <div id="game5">Loading...</div>
+      <div id="game5_users" class="users_online">...</div>
+    </div>
+  </div>
+
+  <h2>Favourite Game</h2>
+  <div class="game_line">
+    <img id=game_fav_icon class="game_icon" />
+    <div class="game_info">
+      <div id="game_fav">You can add your favourite game in the Extension options.</div>
+      <div id="game_fav_users" class="users_online">...</div>
+    </div>
+  </div>
+</body>
+<script src="getData.js"></script>
+
+</html>

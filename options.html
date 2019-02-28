@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    .main_options {
+        border: 2px;
+        border-style: double;
+        max-width: 600px;
+    }
+
+    .save_button {
+        margin: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="main_options">
+        <div>
+            <p>Minutes to auto-refresh online players (Icon Badge):
+            <input id="minutes_to_refresh" type="number"/>
+        </div>
+        <div>
+            <p>Favourite game TitleID:
+            <input id="fav_game" type="text"/>
+            <a href="http://xboxunity.net/" target="new">Search here!</a>
+        </div>
+        <br>
+        <input id ="save" class="save_button" type="submit" value="Save"/>
+    </div>
+</body>
+<script src="options.js"></script>
+
+</html>
