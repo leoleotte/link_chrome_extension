@@ -23,12 +23,12 @@ let favGameIcon = document.getElementById("game_fav_icon");
 let online = document.getElementById("online");
 let xhr = new XMLHttpRequest();
 
-xhr.open("GET", chrome.extension.getURL("http://phoenix.xboxunity.net/linkgizmo.php"), true);
+xhr.open("GET", browser.extension.getURL("http://phoenix.xboxunity.net/linkgizmo.php"), true);
 xhr.onreadystatechange = function () {
     if (xhr.readyState == 4) {
         let resp = JSON.parse(xhr.responseText);
         online.textContent = "Player Online: " + resp.online;
-        chrome.browserAction.setBadgeText({ text: resp.online });
+        browser.browserAction.setBadgeText({ text: resp.online });
         for (i = 0; i < 5; i++) {
             if (resp.rooms[i]) {
                 games[i].textContent = resp.rooms[i].room;
@@ -44,13 +44,13 @@ xhr.send();
 getFavouriteGame();
 
 function getFavouriteGame() {
-    chrome.storage.sync.get("favGameID", function (data) {
+    browser.storage.sync.get("favGameID", function (data) {
         let favGameID = data.favGameID;
-        if(!favGameID){
+        if (!favGameID) {
             return;
         }
         let xhr = new XMLHttpRequest();
-        xhr.open("GET", chrome.extension.getURL("http://xboxunity.net/Resources/Lib/TitleList.php?page=0&count=10&search=" + favGameID + "&sort=3&direction=1&category=0&filter=0"), true);
+        xhr.open("GET", browser.extension.getURL("http://xboxunity.net/Resources/Lib/TitleList.php?page=0&count=10&search=" + favGameID + "&sort=3&direction=1&category=0&filter=0"), true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
                 let resp = JSON.parse(xhr.responseText);
@@ -61,12 +61,15 @@ function getFavouriteGame() {
                 if (game) {
                     favGame.textContent = game.Name;
                     favGameUsers.textContent = "Users: " + game.UserCount;
-                    favGameIcon.src = "http://xboxunity.net/Resources/Lib/Icon.php?tid="+favGameID+"&custom=1";
+                    favGameIcon.src = "http://xboxunity.net/Resources/Lib/Icon.php?tid=" + favGameID + "&custom=1";
                 }
             }
         }
         xhr.send();
     });
-
-
 }
+
+let optionsButton = document.getElementById('options');
+optionsButton.addEventListener('click', function() {
+    window.open("/options.html");
+  });
